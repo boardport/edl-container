@@ -1,0 +1,66 @@
+# IDE & Development Tools
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# VCS
+.hg/
+.git/
+.svn/
+*.git
+.gitignore
+.gitattributes
+.gitmodules
+
+# AI Agents & LLM Context
+.claude/
+.gemini/
+.continue/
+.cursor/
+.qwen/
+.agents/
+*.chat_history
+*.context
+
+# Node.js & Package Managers
+node_modules/
+.pnpm-store/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build Artifacts & Generated Output
+.next/
+.source/
+.turbo/
+build/
+dist/
+export/
+generated/
+output/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Temporary Files & Local Cache
+temp/
+tmp/
+
+# Environment Variables & Secrets
+.env
+.env.*
+.env.local
+!.env.example
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+

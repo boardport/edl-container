@@ -1,0 +1,40 @@
+# Dependencies & Build Artifacts
+node_modules/
+.pnpm-store/
+
+# Dumps & Firmware Binaries
+dumps/
+*.bin
+*.img
+*.mbn
+*.elf
+*.raw
+
+# Temporary Files & Local Cache
+tmp/
+temp/
+backups/
+
+# Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+
+# Operating System Files & IDEs
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Binary, Archives & Media
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+*.svg
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.gz

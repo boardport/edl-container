@@ -1,0 +1,11 @@
+# Hidden
+/backup*
+/custom*
+/dump*
+/loader*
+/log*
+/secret*
+/volume*
+
+# Docker configs
+Dockerfile

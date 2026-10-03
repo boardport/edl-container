@@ -1,0 +1,54 @@
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Dockerfile: Debian-based Qualcomm EDL Container
+# Description: Multi-stage build for bkerler/edl tool with USB and EDL support.
+# ----------------------------------------------------------------
+# Repository: https://github.com/boardport/edl-container
+# Author: BoardPort Community <boardport@proton.me>
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ARG PYTHON_SHORT_VERSION=3.11
+
+FROM docker.io/python:${PYTHON_SHORT_VERSION}-slim AS base
+
+ARG EDL_BRANCH=master
+
+ENV EDL_BRANCH=$EDL_BRANCH \
+    EDL_DIR=/opt/edl \
+    EDL_DUMP_DIR=/opt/edl/dumps \
+    EDL_DUMP_UID=1000
+
+COPY ./docker/docker-entrypoint.sh /docker-entrypoint.sh
+
+RUN set -eux \
+    # Install system dependencies and tools \
+    && DEBIAN_FRONTEND=noninteractive \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+        adb fastboot \
+        build-essential git liblzma-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    # Create user matching default host UID \
+    && useradd -u $EDL_DUMP_UID -m -s /bin/bash edl \
+    # Clone upstream EDL repository with submodules \
+    && git clone https://github.com/bkerler/edl.git \
+        --depth 1 \
+        --single-branch \
+        --branch $EDL_BRANCH \
+        --recurse-submodules \
+        --shallow-submodules \
+        $EDL_DIR \
+    && chown -R edl:edl "$EDL_DIR"
+
+WORKDIR $EDL_DIR
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+FROM base
+
+RUN set -eux \
+    # Install Python package and dependencies \
+    && pip install --no-cache-dir "$EDL_DIR" \
+    && chown -R edl:edl "$EDL_DIR" \
+    && chmod +x "$EDL_DIR/edl.py" \
+    && ln -sf "$EDL_DIR/edl.py" /usr/local/bin/edl

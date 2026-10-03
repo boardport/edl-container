@@ -1,0 +1,14 @@
+# Dependabot configuration for automated dependency & action updates
+version: 2
+updates:
+  # GitHub Actions Workflows
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+
+  # Dockerfile base images & packages
+  - package-ecosystem: 'docker'
+    directory: '/docker'
+    schedule:
+      interval: 'weekly'

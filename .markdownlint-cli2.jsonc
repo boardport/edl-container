@@ -1,0 +1,28 @@
+{
+  "config": {
+    "default": true,
+    "MD013": {
+      "line_length": 150,
+      "code_blocks": false,
+      "tables": false,
+      "headings": false
+    },
+    "MD024": {
+      "siblings_only": true
+    },
+    "MD033": false,
+    "MD041": false
+  },
+  "globs": ["**/*.md", "**/*.mdx"],
+  "ignores": [
+    ".ai/**",
+    ".agents/**",
+    ".gemini/**",
+    ".claude/**",
+    ".cursor/**",
+    ".qwen/**",
+    "**/.git/**",
+    "**/node_modules/**",
+    "**/tmp/**"
+  ]
+}
