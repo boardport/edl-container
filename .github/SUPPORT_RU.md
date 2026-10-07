@@ -10,9 +10,9 @@
 Перед созданием обращения, пожалуйста, ознакомьтесь с материалами в репозитории:
 
 - Главная страница проекта: [README_RU.md](../README_RU.md) / [README.md](../README.md)
-- Архитектура и внутреннее устройство: [ARCHITECTURE_RU.md](../ARCHITECTURE_RU.md) / [ARCHITECTURE.md](../ARCHITECTURE.md)
+- Документация и архитектура: [docs/architecture.ru.md](../docs/architecture.ru.md) / [docs/architecture.en.md](../docs/architecture.en.md)
 - Настройка Docker и выполнение команд: [docker/README_RU.md](../docker/README_RU.md) / [docker/README.md](../docker/README.md)
-- Регламент для AI-агентов: [AGENTS_RU.md](../AGENTS_RU.md) / [AGENTS_RU.md](../AGENTS.md)
+- Регламент для AI-агентов: [AGENTS_RU.md](../AGENTS_RU.md) / [AGENTS.md](../AGENTS.md)
 
 ## 2. Issues и сообщения об ошибках
 

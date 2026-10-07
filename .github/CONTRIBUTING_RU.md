@@ -20,7 +20,7 @@
 
 - Предлагайте поддержку новых устройств (модемов MSM89XX, плат разработки), загрузчики Firehose или сценарии автоматизации
   через **[Шаблон предложения](./ISSUE_TEMPLATE/feature_request_ru.md)**.
-- Ознакомьтесь с архитектурными решениями в [ARCHITECTURE_RU.md](../ARCHITECTURE_RU.md).
+- Ознакомьтесь с архитектурными решениями в [docs/architecture.ru.md](../docs/architecture.ru.md).
 
 ### 3. Отправка Pull Request
 

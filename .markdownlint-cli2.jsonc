@@ -21,6 +21,7 @@
     ".claude/**",
     ".cursor/**",
     ".qwen/**",
+    "CLAUDE.md",
     "**/.git/**",
     "**/node_modules/**",
     "**/tmp/**"

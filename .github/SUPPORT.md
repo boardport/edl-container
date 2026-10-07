@@ -10,7 +10,7 @@ Check out the available support resources below.
 Before filing an issue, please review the documentation available in this repository:
 
 - Main project documentation: [README.md](../README.md) / [README_RU.md](../README_RU.md)
-- Architecture and internals: [ARCHITECTURE.md](../ARCHITECTURE.md) / [ARCHITECTURE_RU.md](../ARCHITECTURE_RU.md)
+- Architecture and internals: [docs/architecture.en.md](../docs/architecture.en.md) / [docs/architecture.ru.md](../docs/architecture.ru.md)
 - Docker setup and command execution: [docker/README.md](../docker/README.md) / [docker/README_RU.md](../docker/README_RU.md)
 - AI & Agent Guidelines: [AGENTS.md](../AGENTS.md) / [AGENTS_RU.md](../AGENTS_RU.md)
 

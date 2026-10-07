@@ -10,7 +10,7 @@ Provide a clear and concise description of the changes proposed in this Pull Req
 - [ ] Make Tooling (`.make/*.mk`)
 - [ ] AI Agent Context & Skills (`.ai/`, `AGENTS.md`)
 - [ ] GitHub Infrastructure & CI (`.github/`)
-- [ ] Documentation (`README.md`, `ARCHITECTURE.md`)
+- [ ] Documentation (`README.md`, `docs/*.md`)
 
 ## Type of Change
 

@@ -3,8 +3,8 @@
 > **Project:** BoardPort — EDL Container  
 > **Organization:** [BoardPort](https://github.com/boardport) | **Repository:** `boardport/edl-container`  
 > **Upstream:** [bkerler/edl](https://github.com/bkerler/edl) (Bjoern Kerler, MIT License)  
-> **Target Image:** `ghcr.io/boardport/edl` | **Packaging License:** [MIT](./LICENSE)  
-> **Architecture Specification:** [ARCHITECTURE.md](./ARCHITECTURE.md) / [ARCHITECTURE_RU.md](./ARCHITECTURE_RU.md)  
+> **Knowledge Base & Specifications:** [docs/overview.en.md](./docs/overview.en.md) |  
+> [docs/architecture.en.md](./docs/architecture.en.md) | [docs/development.en.md](./docs/development.en.md)  
 
 ---
 
@@ -22,7 +22,29 @@ Developers directly control, isolate, and customize secondary context for their 
 
 ---
 
-## 2. Make Tooling (Shared Framework)
+## 2. Knowledge Base and Technical Contracts (`docs/`)
+
+The [`docs/`](./docs/) directory serves as the **authoritative technical source of truth** for the project.
+All architectural, environmental, and hardware interaction decisions must strictly adhere to the documented specifications:
+
+- **Mandatory Compliance:**
+  - Architecture boundaries, execution lifecycles, and isolation models are defined in [`docs/architecture.en.md`](./docs/architecture.en.md).
+  - Docker specifications, environment variables (`EDL_DUMP_UID`), hooks, and volume mounts — [`docs/development.en.md`](./docs/development.en.md).
+  - Operational workflows, backups, flashing, and troubleshooting — [`docs/workflows.en.md`](./docs/workflows.en.md).
+  - Host preparation, udev rules, and EDL mode entry — [`docs/quickstart.en.md`](./docs/quickstart.en.md).
+  Agents are prohibited from implementing conflicting solutions.
+- **Mandatory Synchronous Updates:** Any codebase changes affecting behavior (variables, runtime flags, entrypoint logic,
+  Make targets) require immediate synchronous updates across corresponding documents in `docs/`.
+- **Mirrored Bilingualism:** Documentation in `docs/` is strictly maintained in pairs: `*.en.md` (English) and `*.ru.md` (Russian).
+- **Static Wiki Requirements (Fumadocs/VitePress):**
+  - Relative paths leading outside the directory (`../`) are strictly prohibited. All references to repository files must use
+    full GitHub URLs (`https://github.com/boardport/edl-container/blob/main/...`).
+  - Do not introduce manual navigation headers ("Related Sections", breadcrumbs) or language badges in document bodies —
+    sidebars, breadcrumbs, and pagination are handled automatically by the wiki engine.
+
+---
+
+## 3. Make Tooling (Shared Framework)
 
 The `.make/` directory and root `Makefile` serve as a modular, reusable task runner abstracted from the project code:
 
@@ -34,26 +56,27 @@ The `.make/` directory and root `Makefile` serve as a modular, reusable task run
 
 ---
 
-## 3. Docker Project Context
+## 4. Docker Project Context
 
-- **Environment Specification:** Image architecture, entrypoint flow, and containerization rules are documented in [`docker/README.md`](./docker/README.md).
+- **Authoritative Environment Specification:** Container internals, multi-arch builds, runtime environment variables,
+  and volume mount points are formally specified in [`docs/architecture.en.md`](./docs/architecture.en.md) and
+  [`docs/development.en.md`](./docs/development.en.md). Local directory context is provided in [`docker/README.md`](./docker/README.md).
 - **Command Execution Isolation:** All Qualcomm/EDL interactions must execute strictly inside Docker containers via
   `docker run ...` or Make targets `make edl-*`.
   Installing dependencies and invoking utilities directly on the host is prohibited.
 
 ---
 
-## 4. Markdown Documentation Standards
+## 5. Markdown Documentation Standards
 
 - **Formatting Rules:** Syntax and formatting constraints are governed by `.editorconfig` and `.markdownlint-cli2.jsonc`.
 - **Mandatory Lint Command:** `npx markdownlint-cli2` (must return `0 issues in 0 files` prior to concluding work).
-- **Mirrored Bilingualism:** All public user documentation is maintained in parallel (`*.md` in English and `*_RU.md` in Russian).
-- **Styling and Emoji:** Emojis are permitted but reserved primarily for public (user-facing) documentation.
+- **Style and Conciseness:** Documentation must remain objective, technically accurate, and free of marketing fluff or tautologies.
 - **Clarity of Presentation:** Public documents must remain simple, approachable, and provide clear step-by-step guidance.
 
 ---
 
-## 5. Git and GitHub Standards (`.github/`)
+## 6. Git and GitHub Standards (`.github/`)
 
 - Organizational policies, issue templates, PR descriptions, and CI processes reside in [`.github/`](./.github/).
 - Commit message standards and git templates are governed by the `.github/` context and agent-specific instructions.

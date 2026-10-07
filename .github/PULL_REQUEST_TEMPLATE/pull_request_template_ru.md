@@ -10,7 +10,7 @@
 - [ ] Make-инструментарий (`.make/*.mk`)
 - [ ] AI-контекст и навыки (`.ai/`, `AGENTS_RU.md`)
 - [ ] Инфраструктура GitHub и CI (`.github/`)
-- [ ] Документация (`README_RU.md`, `ARCHITECTURE_RU.md`)
+- [ ] Документация (`README_RU.md`, `docs/*.md`)
 
 ## Тип изменений
 

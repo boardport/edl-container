@@ -18,7 +18,7 @@ This repository provides an isolated, production-grade Docker container and auto
 
 - Propose new device configurations, Firehose loaders, or automation features using the
   **[Feature Request Template](./ISSUE_TEMPLATE/feature_request.md)**.
-- Review existing architectural boundaries in [ARCHITECTURE.md](../ARCHITECTURE.md).
+- Review existing architectural boundaries in [docs/architecture.en.md](../docs/architecture.en.md).
 
 ### 3. Submitting Pull Requests
 
